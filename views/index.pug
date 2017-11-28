@@ -1,0 +1,30 @@
+html
+    head
+        title= "Parser"
+    body
+        h1= "Phone parser"
+        form(method="post" action="/")
+            textarea(id="data" name="data" cols="80" rows="10") #{phones}
+            p
+                button(type="submit") Convert
+        
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+        script.
+            $(() => {
+                $("#data").on("focus keyup", function(e){
+
+                        var keycode = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
+                        if(keycode === 9 || !keycode){
+                            // Hacemos select
+                            var $this = $(this);
+                            $this.select();
+
+                            // Para Chrome's que da problema
+                            $this.on("mouseup", function() {
+                                // Unbindeamos el mouseup
+                                $this.off("mouseup");
+                                return false;
+                            });
+                        }
+                    });
+            });

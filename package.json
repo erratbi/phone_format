@@ -1,0 +1,24 @@
+{
+  "name": "phone_format",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -w . --exec babel-node -- ./server.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4"
+  }
+}
